@@ -13,9 +13,7 @@ FILE_LIST =		main.c \
 				mouse.c \
 				kill_duck.c \
 				all_fonctions.c \
-				fireball_party1.c \
-				fireball_party2.c \
-				flunk_fire.c \
+				fireball.c \
 
 SRC		= 		$(FILE_LIST)
 

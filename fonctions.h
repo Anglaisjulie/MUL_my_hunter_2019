@@ -40,18 +40,12 @@ cursor_t *init_cursor(void);
 void change_mouse(sfRenderWindow *, cursor_t *);
 duck_t *init_duck(void);
 int recovery_position (sfRenderWindow *, duck_t *);
-int manage_event(sfRenderWindow *, duck_t *);
-fire_t *init_fire1(void);
-fire_t *init_fire2(void);
-fire_t *init_fire3(void);
-fire_t *init_fire4(void);
-fire_t *init_fire5(void);
-void display_fire12 (sfRenderWindow *, duck_t *, fire_t *, fire_t *);
-void display_fire34 (sfRenderWindow *, duck_t *, fire_t *, fire_t *);
-void display_fire5 (sfRenderWindow *, duck_t *, fire_t *);
+void manage_event(sfRenderWindow *, duck_t *);
+fire_t *init_fire(void);
+void display_fire(sfRenderWindow *, duck_t *, fire_t *);
 void fonctions_duck (sfRenderWindow *, sfClock *, duck_t *);
 void fonctions_cursor (sfRenderWindow *, cursor_t *);
 int flunk_fire(duck_t *);
-
+int bullet_fire(duck_t *, sfRenderWindow *, duck_t *);
 
 #endif

@@ -20,6 +20,7 @@ int recovery_position (sfRenderWindow *window, duck_t *duck)
     sfVector2i pos_mouse;
     sfVector2f pos_duck;
     sfVector2f rec_duck;
+    int bullet = 5;
 
     pos_mouse = sfMouse_getPositionRenderWindow(window);
     pos_duck = sfSprite_getPosition(duck->sprite);
@@ -31,4 +32,7 @@ int recovery_position (sfRenderWindow *window, duck_t *duck)
         sfSprite_destroy(duck->sprite);
         sfTexture_destroy(duck->texture);
     }
+    if (duck->life == 1)
+        bullet--;
+    return (bullet);
 }
