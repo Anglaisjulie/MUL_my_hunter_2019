@@ -11,18 +11,16 @@
 #include "fonctions.h"
 #include <stdlib.h>
 
-cursor_t *init_cursor(void)
+basic_t *init_cursor(game_t *game)
 {
-    cursor_t *cursor = NULL;
-
-    cursor = malloc(sizeof(cursor_t));
-    cursor->text = sfTexture_createFromFile("cursor.png", NULL);
-    cursor->sprite = sfSprite_create();
-    sfSprite_setTexture(cursor->sprite, cursor->text, 1);
-    return (cursor);
+    game->cursor = malloc(sizeof(basic_t));
+    game->cursor->texture = sfTexture_createFromFile("cursor.png", NULL);
+    game->cursor->sprite = sfSprite_create();
+    sfSprite_setTexture(game->cursor->sprite, game->cursor->texture, 1);
+    return (game->cursor);
 }
 
-void change_mouse(sfRenderWindow *window, cursor_t *cursor)
+void change_mouse(sfRenderWindow *window, game_t *game)
 {
     sfVector2i pos;
     sfVector2f xy;
@@ -31,6 +29,6 @@ void change_mouse(sfRenderWindow *window, cursor_t *cursor)
     pos = sfMouse_getPositionRenderWindow(window);
     xy.x = pos.x - 25;
     xy.y = pos.y - 25;
-    sfSprite_setPosition(cursor->sprite, xy);
-    sfRenderWindow_drawSprite(window, cursor->sprite, NULL);
+    sfSprite_setPosition(game->cursor->sprite, xy);
+    sfRenderWindow_drawSprite(window, game->cursor->sprite, NULL);
 }

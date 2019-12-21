@@ -5,26 +5,29 @@
 ** window.c
 */
 
-#include <SFML/Graphics.h>
-#include <stdbool.h>
 #include "fonctions.h"
 
-int main (void)
+int main(void)
 {
     sfRenderWindow *window;
-    sfVideoMode mode = {1920, 1080, 32};
-    duck_t *duck = init_duck();
-    cursor_t *cursor = init_cursor();
-    fire_t *fire = init_fire();
+    sfVideoMode mode = {MAX_WINDOW_SIZE_X, MAX_WINDOW_SIZE_Y, 32};
     sfClock *clock = sfClock_create();
-    int a = 0;
+    game_t *game = NULL;
+    sfMusic *music_main = music_game();
 
+    game = malloc(sizeof(game_t));
+    init_cursor(game);
+    init_dragon(game, -10, -10);
+    create_button(game);
     window = sfRenderWindow_create(mode, "My Hunter", sfDefaultStyle, NULL);
+    sfRenderWindow_setFramerateLimit(window, 60);
     while (sfRenderWindow_isOpen(window)) {
-        fonctions_duck(window, clock, duck);
-        display_fire (window, duck, fire);
-        fonctions_cursor(window, cursor);
+        game_loop(window, clock, game);
     }
+    destroy_menu(game);
+    if (game->button->pressed == 0)
+        destroy_game(game);
+    sfMusic_destroy(music_main);
     sfRenderWindow_destroy(window);
     return (0);
 }

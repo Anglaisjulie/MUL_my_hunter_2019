@@ -5,20 +5,19 @@
 ** close_window.c
 */
 
-#include <SFML/Graphics/RenderWindow.h>
 #include "fonctions.h"
 
-void manage_event(sfRenderWindow *window, duck_t *duck)
+void manage_event(sfRenderWindow *window, game_t *game)
 {
     sfEvent event;
 
-    while (sfRenderWindow_pollEvent(window, &event))
-    {
+    while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
         if (event.type == sfEvtMouseButtonReleased) {
-            recovery_position(window, duck);
+            kill_dragon(window, game);
+            recovery_position(window, game, 0);
+            recovery_position(window, game, 1);
         }
-
     }
 }

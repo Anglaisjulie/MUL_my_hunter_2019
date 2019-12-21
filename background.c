@@ -1,22 +1,17 @@
 /*
 ** EPITECH PROJECT, 2019
-** MUL_my_hunter_2019
+** hunter
 ** File description:
 ** background.c
 */
 
-#include <SFML/Graphics/RenderWindow.h>
-#include <SFML/Graphics.h>
 #include "fonctions.h"
-#include <stdlib.h>
 
-void background(sfRenderWindow *window)
+void background(sfRenderWindow *window, game_t *game)
 {
-    sfTexture * background_text;
-    sfSprite * background_sprite;
-
-    background_text = sfTexture_createFromFile("back2.jpg", NULL);
-    background_sprite = sfSprite_create();
-    sfSprite_setTexture(background_sprite, background_text, 1);
-    sfRenderWindow_drawSprite(window,  background_sprite, NULL);
+    game->background = malloc(sizeof(basic_t));
+    game->background->texture = sfTexture_createFromFile("back.jpg", NULL);
+    game->background->sprite = sfSprite_create();
+    sfSprite_setTexture(game->background->sprite, game->background->texture, 1);
+    sfRenderWindow_drawSprite(window, game->background->sprite, NULL);
 }

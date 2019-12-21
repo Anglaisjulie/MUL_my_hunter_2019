@@ -7,13 +7,15 @@
 
 
 FILE_LIST =		main.c \
-				manage_event.c \
 				background.c \
-				duck.c \
+				manage_event.c \
+				dragon.c \
 				mouse.c \
-				kill_duck.c \
-				all_fonctions.c \
-				fireball.c \
+				menu.c \
+				menu_event.c \
+				destroy.c \
+				game.c \
+				music.c \
 
 SRC		= 		$(FILE_LIST)
 
