@@ -21,9 +21,8 @@ int main(void)
     create_button(game);
     window = sfRenderWindow_create(mode, "My Hunter", sfDefaultStyle, NULL);
     sfRenderWindow_setFramerateLimit(window, 60);
-    while (sfRenderWindow_isOpen(window)) {
+    while (sfRenderWindow_isOpen(window))
         game_loop(window, clock, game);
-    }
     destroy_menu(game);
     if (game->button->pressed == 0)
         destroy_game(game);
