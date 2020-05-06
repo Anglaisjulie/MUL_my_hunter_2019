@@ -1,0 +1,2 @@
+# MUL_my_hunter_2019
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1782cab77a594a8a86335b17eb595c61)](https://app.codacy.com/manual/Anglaisjulie/MUL_my_hunter_2019?utm_source=github.com&utm_medium=referral&utm_content=Anglaisjulie/MUL_my_hunter_2019&utm_campaign=Badge_Grade_Dashboard)
